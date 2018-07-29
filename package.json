@@ -1,0 +1,13 @@
+{
+  "name": "Test",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~1.0.3",
+    "grunt-autoprefixer": "~3.0.4",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-sass": "~1.0.0",
+    "grunt-contrib-watch": "~1.1.0",
+    "scsslint": "0.0.3"
+  },
+  "dependencies": {}
+}
