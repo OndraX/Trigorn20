@@ -1,0 +1,65 @@
+$skew: 1.8rem;
+$margin: .3rem;
+$menu-height: 6.4rem;
+$to: #b92b27;// #acb6e5;
+$from: #1565c0;// #86fde8;
+$fill-color: mix($to, $from,35%);
+$fill-color-faded: transparentize($fill-color, .3);
+$fill-color-fadeder: transparentize($fill-color, .5);
+$link-default: mix($to, white);
+$link-hover:  lighten($to,12%);
+$prime-contrast: #ffffff;
+$prime-dark: #5872e8;
+$prime-darker: #236aba;
+$prime-light: #9a8eff;
+
+//Mixins
+////
+//
+
+@mixin thin-border-antialias($color : white,$border...) {
+  box-shadow: 0 0 1px 0 $color inset, 0 0 1px 0 $color;
+  box-shadow: 0 0 .5px 0 $color inset, 0 0 .5px 0 $color;
+
+  @if (length($border) != 0) {
+    border: $border;
+  }
+}
+
+@mixin flex { //To support lt IE11 for flexbox polyfill
+  -js-display: flex;
+  display: flex;
+}
+
+@mixin textsc($font-size) {
+  text-transform: uppercase;
+
+  &::first-letter {
+    font-size: 1.424*$font-size;
+    line-height: $font-size;
+  }
+}
+
+@mixin default-trans {
+  transition: all .2s ease-in-out;
+}
+
+@mixin longer-trans {
+  transition: all .4s ease-in-out;
+}
+
+@mixin re($point) {
+  @if $point == max_large {
+    @media (max-width: 1600px) { @content; }
+  }
+
+  @else if $point == max_screen {
+    @media (max-width: 1250px) { @content; }
+  }
+
+  @else if $point == max_phone {
+    @media (max-width: 800px) { @content; }
+  }
+}
+
+

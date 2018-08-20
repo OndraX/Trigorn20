@@ -1,0 +1,6 @@
+"Get current working directory without bash newline
+:let g:root = systemlist('echo $PWD')[0]
+"Get .lvimrc current directory 
+:let g:cwd = expand('<sfile>:p:h')
+:call SetupCommandAlias('F','e '.g:root)
+:call SetupCommandAlias('E','e '.g:cwd)

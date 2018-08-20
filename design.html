@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Layout Trigorn</title>
+	<link rel="stylesheet" href="./css/main.css">
+	<script src="./js/flexibility.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/ColorPropsPlugin.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+	
+</head>
+<body>
+	<script>
+		var controller = new ScrollMagic.Controller();
+	</script>
+	<div id="wrapper">
+		
+			<section data-from="#108dc7" data-to="#ef8e38" class="subpage">
+				<!--/BEGIN MAIN PAGE/-->
+				<h2><!--{{page:main_title-->
+					Main tage pitle
+					<!--}}--></h2>
+				<p class="subheading"><!--{{-->
+				Page subtitle string
+				<!--}}--></p>
+				<!--/END MAIN PAGE/-->
+			</section>
+			<section data-from="#3E5151" data-to="#DECBA4" class="subpage">
+							<!--/BEGIN MAIN PAGE/-->
+							<h2><!--{{page:main_title-->
+									Main page title
+								<!--}}--></h2>
+							<p class = "subheading"><!--{{-->
+								Page subtitle string
+							<!--}}--></p>
+							<!--/END MAIN PAGE/-->
+						</section>
+			<section  class="subpage">
+							<!--/BEGIN MAIN PAGE/-->
+							<h2><!--{{page:main_title-->
+									Main page title
+								<!--}}--></h2>
+							<p class = "subheading"><!--{{-->
+								Page subtitle string
+							<!--}}--></p>
+							<!--/END MAIN PAGE/-->
+						</section>
+					<section data-from="#FC5C7D" data-to="#6A82FB" class="subpage">
+							<!--/BEGIN MAIN PAGE/-->
+							<h2><!--{{page:main_title-->
+									Main page title
+								<!--}}--></h2>
+							<p class = "subheading"><!--{{-->
+								Page subtitle string
+							<!--}}--></p>
+							<!--/END MAIN PAGE/-->
+						</section>
+		
+	</div>
+	<script>
+/*
+ * Polyfills and global inits
+ */
+flexibility(document.documentElement);
+/*
+ * GSAP animations
+ */
+const defaultFrom = 'orange';
+const defaultTo = 'blue';
+let find = document.querySelector.bind(document);
+let findAll = document.querySelectorAll.bind(document);
+let subpages = findAll('.subpage');
+const config = {
+	discrete: false,
+	scrollControlled: true,
+}
+const tween = new TimelineMax;
+window.colours = {from: 'white', to: 'black'};
+let wrapper = find('#wrapper');
+
+	function colourise(element){
+		console.log('Colorisation commencing');
+		TweenMax.set(element,{backgroundImage:"-webkit-linear-gradient(to bottom left," + colours.from + ", " + colours.to + ")",background:"linear-gradient(to bottom left," + colours.from + ", " + colours.to + ")"});
+	}
+subpages.forEach(function(e){
+	let from = e.getAttribute('data-from') || defaultFrom;
+	let to = e.getAttribute('data-to') || defaultTo;
+	let sceneParams = {triggerElement: e,};
+	if(config.scrollControlled){
+		console.log('scrollControlled');
+		sceneParams.duration = window.innerHeight; //TODO resize with window
+	}
+	new ScrollMagic.Scene(sceneParams)
+		.setTween(
+			TweenMax.to(colours,1,{colorProps: {from: from, to: to}, onUpdate: colourise,onUpdateParams:[wrapper]}))
+		.addTo(controller);
+
+});
+
+
+	</script>
+</body>
+</html>

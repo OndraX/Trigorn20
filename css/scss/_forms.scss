@@ -1,0 +1,83 @@
+@import 'utils/vars';
+
+form.inline-form {
+  display: inline-block;
+}
+
+.input-inline {
+  display: inline-block;
+}
+
+.input-round {
+  $inborder: .6rem;
+  $outborder: .4rem;
+
+  display: inline-block;
+  position: relative;
+  height: 3.2rem;
+  vertical-align: middle;
+  padding-left: .8rem;
+  margin-right: 1.5rem;
+  margin-top: -.4rem;//Lazy center in line
+  border-radius: 1.5rem;
+  padding: .2rem 1.2rem;
+  font-weight: 300;
+  font-size: 2rem;
+  font-family: 'Lato', 'Roboto Condensed', sans-serif !important;
+  box-shadow: 0 0 0 0 transparent, 0 0 16px -4px black;
+  background: #efeaef;
+
+  @include default-trans;
+
+  &:focus {
+    box-shadow: 0 0 0 $inborder $fill-color,
+      0 0 0 $inborder+$outborder transparentize(white,.9);
+    background: white;
+  }
+
+  outline: none;
+
+  &:hover {
+    outline: none;
+  }
+
+  border: none;
+}
+
+.search-form {
+  position: relative;
+
+  .search-button {
+    background: transparent;
+    border: none;
+    outline: none !important;
+    font-size: 2.8rem;
+    position: absolute;
+    right: 1.4rem;
+    top: 50%;
+    color: $fill-color;
+    cursor: pointer;
+    transform-origin: 43% 38%; /* Mathematically proven to be best possible values to center a loupe's  circle bit */
+    transform: translateY(-50%);
+    margin-top: .35rem;
+    z-index: 30;
+
+
+    @include default-trans;
+
+    &:hover {
+      transform: translateY(-50%) rotate(-90deg) scale(1);
+      color: $link-default;
+    }
+
+    &:active {
+      transform: translateY(-50%) rotate(-45deg) scale(1.3);
+      color: $link-hover;
+    }
+  }
+
+  .input-round:focus + .search-button {
+    transform: translateY(-50%) rotate(-90deg) scale(1);
+  }
+
+}

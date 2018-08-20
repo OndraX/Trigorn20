@@ -1,105 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Layout Trigorn</title>
-	<link rel="stylesheet" href="./css/main.css">
-	<script src="./js/flexibility.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/ColorPropsPlugin.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
-	
-</head>
-<body>
-	<script>
-		var controller = new ScrollMagic.Controller();
-	</script>
-	<div id="wrapper">
-		
-			<section data-from="#108dc7" data-to="#ef8e38" class="subpage">
+	<head>
+		<meta charset="UTF-8">
+		<title>Layout Trigorn</title>
+
+		<!--/BEGIN FONTS/-->
+		<link rel="stylesheet" href="assets/fonts/bebas-neue/TypoPRO-BebasNeue.css">
+		<!--/END FONTS/-->
+		<link rel="stylesheet" href="./css/main.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+		<!--/BEGIN PRE-SCRIPTS/-->
+		<script src="./js/flexibility.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/ColorPropsPlugin.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+		<script src="./js/masonry/masonry.min.js"></script>
+		<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+		<!--/END PRE-SCRIPTS/-->
+	</head>
+	<body>
+		<!--/BEGIN SVG DEFS/-->
+		<svg id="global-defs" style="position:absolute;" width="0" height="0">
+			<defs>
+			<linearGradient id="lg" gradientTransform="rotate(45)">
+			<stop id="gradient-from" offset="0" />
+			<stop id="gradient-to" offset="1" />
+			</linearGradient>
+			<filter id="f1" x="0" y="0" width="200%" height="200%">
+			<feDropShadow id="title-shadow-color" dx="7" dy="5" stdDeviation="0" />
+			</filter>
+			</defs>
+		</svg>
+
+		<!--/END SVG DEFS/-->
+		<script>
+			var controller = new ScrollMagic.Controller();
+		</script>
+
+		<div id="wrapper">
+			<header id="fixed-header" class="large header floating-header">
+
+				<!--/BEGIN NAV/-->
+				<!-- <nav id="main&#45;nav" class="horizontal&#45;nav" onclick="this.classList.toggle('vertical&#45;nav');this.classList.toggle('horizontal&#45;nav');"> -->
+				<nav id="main-nav" class="menu_skin horizontal-nav mobile-menu-off">
+					<!--/BEGIN LOGO/-->
+					<div class="pre-end-block">Trigorn</div>
+					<!--/END LOGO/-->
+					<ul class="nav-list turned-off" id="main-menu">
+						<li class="nav-list__item" data-text="Domů">
+							<a class = "nav-list__link" href="#">Domů</a>
+						</li><!--
+						--><li class="nav-list__item" data-text="Homů">
+							<a class = "nav-list__link" href="#">Homů</a>
+						</li><!--
+						--><li class="nav-list__item" data-text="Slomů">
+							<a class = "nav-list__link" href="#">Slomů</a>
+						</li><!--
+						--><li class="nav-list__item" data-text="Blomů">
+							<a class = "nav-list__link" href="#" >Blomů</a>
+						</li>
+					</ul>
+					<!--/BEGIN LOGO/-->
+					<div class="post-end-block">
+						<section class="left-part">
+							<form class="menu-search-form inline-form search-form" action="#">
+								<input type="text" name="search" class="input-round" id="page-search" placeholder="Hledej ... ">
+								<button class="search-button"><span class="fa fa-search"></span></button>
+							</form>
+						</section>
+						<section class="right-part">
+
+							<span onclick="document.querySelector('#main-nav').classList.toggle('mobile-menu-off')"class="menu-toggle-button fa fa-bars"></span>
+						</section>
+					</div>
+					<!--/END LOGO/-->
+				</nav>
+				<!--/END NAV/-->
+				<!--/BEGIN EXTRA-MENU/-->
+
+				<!--/END EXTRA-MENU/-->
+			</header>
+
+
+
+			<!--/BEGIN GALLERY/-->
+			<section data-from="#108dc7" data-to="#ef8e38" class="subpage grid gallery-subpage" id='gallery'>
+				<div class="just-a-bit-of-a-cheat-really">Cheaty McCheatface.</div>
+					<div class="grid-sizer"></div>
+					<div class="gutter-sizer"></div>
+					<div class="grid-item grid-item--width2
+					grid-item--height2">  </div>  <div class="grid-item
+					grid-item--height2"></div>  <div class="grid-item
+					grid-item--width3"></div>  <div class="grid-item"></div>  <div
+													class="grid-item"></div>  <div class="grid-item"></div>  <div
+																				   class="grid-item grid-item--height2"></div>  <div class="grid-item
+																				   grid-item--width2 grid-item--height3"></div>  <div class="grid-item"></div>
+																			   <div class="grid-item grid-item--height2"></div>  <div
+																					class="grid-item"></div>  <div class="grid-item grid-item--width2
+																					grid-item--height2"></div>  <div class="grid-item grid-item--width2"></div>
+																				<div class="grid-item"></div>  <div class="grid-item
+																				grid-item--height2"></div>  <div class="grid-item"></div>  <div
+																												 class="grid-item"></div>  <div class="grid-item grid-item--height3"></div>
+			</section>
+
+			<!--/END GALLERY/-->
+			<section data-from="#108dc7" data-to="#ef8e38" class="subpage billboard-subpage">
 				<!--/BEGIN MAIN PAGE/-->
-				<h2><!--{{page:main_title-->
-						Main page title
-					<!--}}--></h2>
+
+				<svg class="svg no-mouse svg_aesthetic">
+					<rect class = "color-rect" x="50%" y="50%" transform = "translate(-370 -70)" width = "710" height = "100"/>
+
+					<text class="page_title_header billboard_text" fill="url(#lg)" x="50%" y="100%" filter="url(#f1)" text-anchor="middle">Knock Out Text</text>
+
+				</svg>
+
+				<!--}}-->
 				<p class="subheading"><!--{{-->
 				Page subtitle string
 				<!--}}--></p>
 				<!--/END MAIN PAGE/-->
 			</section>
-			<section data-from="#3E5151" data-to="#DECBA4" class="subpage">
-							<!--/BEGIN MAIN PAGE/-->
-							<h2><!--{{page:main_title-->
-									Main page title
-								<!--}}--></h2>
-							<p class = "subheading"><!--{{-->
-								Page subtitle string
-							<!--}}--></p>
-							<!--/END MAIN PAGE/-->
-						</section>
-			<section  class="subpage">
-							<!--/BEGIN MAIN PAGE/-->
-							<h2><!--{{page:main_title-->
-									Main page title
-								<!--}}--></h2>
-							<p class = "subheading"><!--{{-->
-								Page subtitle string
-							<!--}}--></p>
-							<!--/END MAIN PAGE/-->
-						</section>
-					<section data-from="#FC5C7D" data-to="#6A82FB" class="subpage">
-							<!--/BEGIN MAIN PAGE/-->
-							<h2><!--{{page:main_title-->
-									Main page title
-								<!--}}--></h2>
-							<p class = "subheading"><!--{{-->
-								Page subtitle string
-							<!--}}--></p>
-							<!--/END MAIN PAGE/-->
-						</section>
-		
-	</div>
-	<script>
-/*
- * Polyfills and global inits
- */
-flexibility(document.documentElement);
-/*
- * GSAP animations
- */
-const defaultFrom = 'orange';
-const defaultTo = 'blue';
-let find = document.querySelector.bind(document);
-let findAll = document.querySelectorAll.bind(document);
-let subpages = findAll('.subpage');
-const config = {
-	discrete: false,
-	scrollControlled: true,
-}
-const tween = new TimelineMax;
-window.colours = {from: 'white', to: 'black'};
-let wrapper = find('#wrapper');
+		</div>
 
-	function colourise(element){
-		console.log('Colorisation commencing');
-		TweenMax.set(element,{backgroundImage:"-webkit-linear-gradient(to bottom left," + colours.from + ", " + colours.to + ")",background:"linear-gradient(to bottom left," + colours.from + ", " + colours.to + ")"});
-	}
-subpages.forEach(function(e){
-	let from = e.getAttribute('data-from') || defaultFrom;
-	let to = e.getAttribute('data-to') || defaultTo;
-	let sceneParams = {triggerElement: e,};
-	if(config.scrollControlled){
-		console.log('scrollControlled');
-		sceneParams.duration = window.innerHeight; //TODO resize with window
-	}
-	new ScrollMagic.Scene(sceneParams)
-		.setTween(
-			TweenMax.to(colours,1,{colorProps: {from: from, to: to}, onUpdate: colourise,onUpdateParams:[wrapper]}))
-		.addTo(controller);
-
-});
-
-
-	</script>
-</body>
+		<!--/BEGIN POST-SCRIPTS/-->
+		<script src="./index.js"></script>
+		<script>
+			imagesLoaded('.grid',function(){
+				var masonry = new Masonry('.grid',{
+					itemSelector: '.grid-item',
+					columnWidth: '.grid-sizer',
+				});
+			});
+		</script>
+		<!--/END POST-SCRIPTS/-->
+	</body>
 </html>

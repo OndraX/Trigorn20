@@ -1,25 +1,26 @@
-@mixin flex { //To support lt IE11 for flexbox polyfill
-  -js-display: flex;
-  display: flex;
-}
+//Imports
+@import 'utils/vars';
+
+/* <+1+>
+ * Main styles (layout, ...)
+ */
 
 html {
   width: 100%;
-  overflow: hidden;
   height: 100%;
   font-size: 10px;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 body {
-  height: 100%;
-  overflow: hidden;
+  height: 100vh;
+  min-height: 100vh;
   font-size: 2.1rem;
-}
 
-#wrapper {
-  width: 100%;
-  overflow-y: auto;
-  height: 100%;
+  /* Cheaty McCheatface ahead, sadly. */
+  pointer-events: none;
+
+  /* End Cheaty McCheatface. */
 }
 
 html,
@@ -29,36 +30,108 @@ body,
   padding: 0;
 }
 
+#wrapper {
+  width: 100%;
+  // overflow-y: auto;
+  // overflow-x: auto;
+  height: 100%;
+  position: relative;
+
+  /* Cheaty McCheatface ahead, sadly. */
+  pointer-events: none;
+
+  /* End Cheaty McCheatface. */
+
+  /* Hide scrollbar on page */
+  // $scroll-crossbrowser-maxwidth: 14px;
+  //
+  // padding-left: $scroll-crossbrowser-maxwidth;
+  // padding-right: $scroll-crossbrowser-maxwidth;
+  // margin-left: -$scroll-crossbrowser-maxwidth;
+}
+
+header {
+  pointer-events: all;
+}
+
 .subpage {
   width: 100%;
+  min-height: 100%;
   //border: 1px solid black;
   box-sizing: border-box;
   height: 100%;
 
-  @include flex;
+  /* Cheaty McCheatface ahead, sadly. */
+  pointer-events: all;
 
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* End Cheaty McCheatface. */
+
+
+  $fsize: 6.3rem;
 
   h2 {
-    text-transform: uppercase;
-    $fsize: 6.3rem;
-
     align-self: flex-center;
     text-align: center;
     width: 100%;
     font-size: $fsize;
 
-    &::first-letter {
-      font-size: 1.424*$fsize;
-      line-height: $fsize;
-    }
+    // @include textsc($fsize);
   }
 
   .subheading {
-    font-size: 6.3rem;
+    font-size: 4.2rem;
+    font-weight: 100;
     text-align: center;
   }
 }
 
+#slideshow-container {
+  @include flex;
+
+  flex-direction: row;
+}
+
+/* Menu layout */
+
+nav.horizontal-nav {
+  display: block;
+  list-style: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+  } 
+}
+
+/* Menu sensible aesthetics */
+
+nav {
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  ul.nav-list {
+    margin: 0;
+  }
+}
+
+/* <+2+>
+ * Aesthetic styles
+ */
+@import 'aesthetic';
+
+/* Menu style */
+
+@import 'nice_menu';
+
+/* Gallery style */
+@import 'gallery';
+
+/* <+3+>
+ * Form styles
+ */
+
+@import 'forms';
